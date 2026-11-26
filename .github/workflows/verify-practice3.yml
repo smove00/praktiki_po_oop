@@ -1,0 +1,48 @@
+name: Verify OOP practice 3
+on:
+  push:
+    paths:
+      - 'practice_3/**'
+      - '.github/workflows/verify-practice3.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Compile all Java sources
+        shell: bash
+        run: |
+          mkdir -p build
+          find practice_3 -name '*.java' -print0 | xargs -0 javac -encoding UTF-8 -d build
+      - name: Run logic smoke tests (headless)
+        shell: bash
+        run: |
+          set -e
+          for name in \
+            ru.mirea.oop.p3.part1.scoreboard.Main \
+            ru.mirea.oop.p3.part1.shapes.Main \
+            ru.mirea.oop.p3.part1.image.Main \
+            ru.mirea.oop.p3.part1.animation.Main \
+            ru.mirea.oop.p3.part3.calculator.Main \
+            ru.mirea.oop.p3.part3.countries.Main \
+            ru.mirea.oop.p3.part3.editor.Main \
+            ru.mirea.oop.p3.part3.keypad.Main; do
+            java -Djava.awt.headless=true -cp build "$name" --self-test
+          done
+          java -cp build ru.mirea.oop.p3.part2.statics.Main
+          java -cp build ru.mirea.oop.p3.part2.circles.Main
+          java -cp build ru.mirea.oop.p3.part2.stopwatch.Main --quick
+      - name: Check draw.io XML
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+          ET.parse('practice_3/part_2_static/task_06_stopwatch/StopWatch.drawio')
+          print('UML diagram XML OK')
+          PY
