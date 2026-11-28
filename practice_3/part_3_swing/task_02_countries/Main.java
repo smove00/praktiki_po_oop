@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part3.countries;
 
+// Задание 2. Список стран.
+
 import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.Map;

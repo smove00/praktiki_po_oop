@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part2.stopwatch;
 
+// Задание 6. Секундомер и сортировка.
+
 import java.util.Random;
 
 public class Main {

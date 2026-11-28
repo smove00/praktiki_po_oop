@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part1.shapes;
 
+// Задание 2. Случайные фигуры.
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;

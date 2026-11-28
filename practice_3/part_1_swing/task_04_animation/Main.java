@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part1.animation;
 
+// Задание 4. Анимация.
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.swing.*;

@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part1.image;
 
+// Задание 3. Просмотр изображения.
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;

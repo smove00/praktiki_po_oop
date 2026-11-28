@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part2.circles;
 
+// Задание 5. Поиск круга с максимальной площадью.
+
 import java.util.Random;
 
 public class Main {

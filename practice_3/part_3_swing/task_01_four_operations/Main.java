@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part3.calculator;
 
+// Задание 1. Арифметические операции.
+
 import java.awt.*;
 import java.util.Locale;
 import javax.swing.*;

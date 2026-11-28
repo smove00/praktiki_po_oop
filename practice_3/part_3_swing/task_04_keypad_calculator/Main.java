@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part3.keypad;
 
+// Задание 4. Калькулятор.
+
 import java.awt.*;
 import java.math.BigDecimal;
 import java.math.MathContext;

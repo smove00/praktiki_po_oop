@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part3.editor;
 
+// Задание 3. Текстовый редактор.
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;

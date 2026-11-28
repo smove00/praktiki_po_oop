@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part2.statics;
 
+// Задания 1-4. Статические поля и методы.
+
 import java.util.Date;
 
 public class Main {

@@ -1,5 +1,7 @@
 package ru.mirea.oop.p3.part1.scoreboard;
 
+// Задание 1. Табло футбольного матча.
+
 import java.awt.*;
 import javax.swing.*;
 
