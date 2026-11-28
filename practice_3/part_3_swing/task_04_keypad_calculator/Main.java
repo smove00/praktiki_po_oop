@@ -64,9 +64,9 @@ public class Main {
                 case "-": value = saved.subtract(rhs); break;
                 case "*": value = saved.multiply(rhs); break;
                 case "/":
-                    if (rhs.signum() == 0) throw new ArithmeticException("Division by zero");
+                    if (rhs.signum() == 0) throw new ArithmeticException("Деление на ноль");
                     value = saved.divide(rhs, MathContext.DECIMAL64); break;
-                default: throw new IllegalStateException("Unknown operation");
+                default: throw new IllegalStateException("Неизвестная операция");
             }
             display = value.stripTrailingZeros().toPlainString();
         }
@@ -104,11 +104,11 @@ public class Main {
         if (args.length > 0 && "--self-test".equals(args[0])) {
             Calculator calc = new Calculator();
             calc.press("7"); calc.press("+"); calc.press("3"); calc.press("=");
-            if (!"10".equals(calc.getDisplay())) throw new AssertionError("Addition");
+            if (!"10".equals(calc.getDisplay())) throw new AssertionError("Сложение");
             calc.press("/"); calc.press("4"); calc.press("=");
-            if (!"2.5".equals(calc.getDisplay())) throw new AssertionError("Division");
+            if (!"2.5".equals(calc.getDisplay())) throw new AssertionError("Деление");
             calc.press("/"); calc.press("0"); calc.press("=");
-            if (!"Ошибка".equals(calc.getDisplay())) throw new AssertionError("Division by zero");
+            if (!"Ошибка".equals(calc.getDisplay())) throw new AssertionError("Деление на ноль");
             System.out.println("Калькулятор работает");
             return;
         }

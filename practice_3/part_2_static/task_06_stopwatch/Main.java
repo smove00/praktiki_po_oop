@@ -51,11 +51,11 @@ public class Main {
         watch.stop();
 
         for (int i = 1; i < values.length; i++) {
-            if (values[i - 1] > values[i]) throw new AssertionError("Sorting failed");
+            if (values[i - 1] > values[i]) throw new AssertionError("Ошибка сортировки");
         }
         System.out.println("Сортировка выбором " + count + " чисел");
-        System.out.println("startTime=" + watch.getStartTime());
-        System.out.println("endTime=" + watch.getEndTime());
-        System.out.println("getElapsedTime()=" + watch.getElapsedTime() + " мс");
+        System.out.println("Время начала: " + watch.getStartTime());
+        System.out.println("Время окончания: " + watch.getEndTime());
+        System.out.println("Время выполнения: " + watch.getElapsedTime() + " мс");
     }
 }

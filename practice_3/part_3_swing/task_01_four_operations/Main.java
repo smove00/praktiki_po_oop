@@ -64,7 +64,7 @@ public class Main {
                 calculate(7, 3, '*') != 21 || calculate(7, 2, '/') != 3.5) throw new AssertionError();
             boolean threw = false;
             try { calculate(10, 0, '/'); } catch (ArithmeticException ex) { threw = true; }
-            if (!threw) throw new AssertionError("Division by zero");
+            if (!threw) throw new AssertionError("Деление на ноль");
             System.out.println("Вычисления работают");
             return;
         }

@@ -7,7 +7,7 @@ public class Main {
         private final double radius;
         private static int numberOfObjects;
         Circle(double radius) {
-            if (!Double.isFinite(radius) || radius < 0) throw new IllegalArgumentException("Radius");
+            if (!Double.isFinite(radius) || radius < 0) throw new IllegalArgumentException("Неверный радиус");
             this.radius = radius;
             numberOfObjects++;
         }
@@ -18,10 +18,10 @@ public class Main {
 
     // Ищем круг с наибольшей площадью.
     static Circle largest(Circle[] circles) {
-        if (circles == null || circles.length == 0) throw new IllegalArgumentException("Empty array");
+        if (circles == null || circles.length == 0) throw new IllegalArgumentException("Массив пуст");
         Circle best = null;
         for (Circle circle : circles) {
-            if (circle == null) throw new IllegalArgumentException("Null circle");
+            if (circle == null) throw new IllegalArgumentException("Отсутствует объект круга");
             if (best == null || circle.getArea() > best.getArea()) best = circle;
         }
         return best;

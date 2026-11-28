@@ -68,7 +68,7 @@ public class Main {
     public static void main(String[] args) {
         if (args.length > 0 && "--self-test".equals(args[0])) {
             List<Shape> shapes = createShapes(123);
-            if (shapes.size() != 20) throw new AssertionError("Expected 20 shapes");
+            if (shapes.size() != 20) throw new AssertionError("Должно быть 20 фигур");
             for (Shape s : shapes) if (s.x < 0 || s.y < 0 ||
                 s.x + s.width > WIDTH || s.y + s.height > HEIGHT) throw new AssertionError();
             System.out.println("Фигуры созданы");

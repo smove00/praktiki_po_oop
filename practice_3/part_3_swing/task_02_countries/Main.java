@@ -8,10 +8,10 @@ import javax.swing.*;
 public class Main {
     private static final Map<String, String> INFO = new LinkedHashMap<>();
     static {
-        INFO.put("Australia", "Австралия — государство в Южном полушарии. Столица: Канберра.");
-        INFO.put("China", "Китай — государство в Восточной Азии. Столица: Пекин.");
-        INFO.put("England", "Англия — часть Соединённого Королевства. Административный центр: Лондон.");
-        INFO.put("Russia", "Россия — государство в Европе и Азии. Столица: Москва.");
+        INFO.put("Австралия", "Австралия — государство в Южном полушарии. Столица: Канберра.");
+        INFO.put("Китай", "Китай — государство в Восточной Азии. Столица: Пекин.");
+        INFO.put("Англия", "Англия — часть Соединённого Королевства. Административный центр: Лондон.");
+        INFO.put("Россия", "Россия — государство в Европе и Азии. Столица: Москва.");
     }
     private static void createWindow() {
         JFrame frame = new JFrame("Страны");
@@ -36,7 +36,7 @@ public class Main {
     }
     public static void main(String[] args) {
         if (args.length > 0 && "--self-test".equals(args[0])) {
-            if (INFO.size() != 4 || !INFO.get("China").contains("Пекин")) throw new AssertionError();
+            if (INFO.size() != 4 || !INFO.get("Китай").contains("Пекин")) throw new AssertionError();
             System.out.println("Список стран работает");
             return;
         }

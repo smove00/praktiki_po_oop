@@ -7,19 +7,19 @@ public class Main {
     public static final class Score {
         private int milan;
         private int madrid;
-        private String lastScorer = "N/A";
-        public void goalMilan() { milan++; lastScorer = "AC Milan"; }
-        public void goalMadrid() { madrid++; lastScorer = "Real Madrid"; }
-        public String result() { return "Result: " + milan + " X " + madrid; }
-        public String last() { return "Last Scorer: " + lastScorer; }
+        private String lastScorer = "Нет";
+        public void goalMilan() { milan++; lastScorer = "Милан"; }
+        public void goalMadrid() { madrid++; lastScorer = "Реал Мадрид"; }
+        public String result() { return "Счёт: " + milan + " X " + madrid; }
+        public String last() { return "Последний гол: " + lastScorer; }
         public String winner() {
-            return "Winner: " + (milan > madrid ? "AC Milan" : madrid > milan ? "Real Madrid" : "DRAW");
+            return "Победитель: " + (milan > madrid ? "Милан" : madrid > milan ? "Реал Мадрид" : "Ничья");
         }
     }
 
     private static void createWindow() {
         Score model = new Score();
-        JFrame frame = new JFrame("Счет матча");
+        JFrame frame = new JFrame("Счёт матча");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel(new GridLayout(5, 1, 8, 8));
         panel.setBorder(BorderFactory.createEmptyBorder(18, 24, 18, 24));
@@ -27,8 +27,8 @@ public class Main {
         JLabel last = new JLabel(model.last(), SwingConstants.CENTER);
         JLabel winner = new JLabel(model.winner(), SwingConstants.CENTER);
         result.setFont(result.getFont().deriveFont(Font.BOLD, 22f));
-        JButton milan = new JButton("AC Milan");
-        JButton madrid = new JButton("Real Madrid");
+        JButton milan = new JButton("Милан");
+        JButton madrid = new JButton("Реал Мадрид");
         milan.addActionListener(event -> {
             model.goalMilan();
             refresh(model, result, last, winner);
@@ -57,12 +57,12 @@ public class Main {
     public static void main(String[] args) {
         if (args.length > 0 && "--self-test".equals(args[0])) {
             Score score = new Score();
-            if (!score.winner().endsWith("DRAW")) throw new AssertionError();
+            if (!score.winner().endsWith("Ничья")) throw new AssertionError();
             score.goalMilan(); score.goalMilan(); score.goalMadrid();
-            if (!"Result: 2 X 1".equals(score.result()) ||
-                !"Last Scorer: Real Madrid".equals(score.last()) ||
-                !"Winner: AC Milan".equals(score.winner())) throw new AssertionError();
-            System.out.println("Счет работает");
+            if (!"Счёт: 2 X 1".equals(score.result()) ||
+                !"Последний гол: Реал Мадрид".equals(score.last()) ||
+                !"Победитель: Милан".equals(score.winner())) throw new AssertionError();
+            System.out.println("Счёт работает");
             return;
         }
         SwingUtilities.invokeLater(Main::createWindow);

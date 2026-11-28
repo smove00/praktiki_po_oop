@@ -6,7 +6,7 @@ public class Main {
     // Задание 1. Обычные и статические члены класса.
     static class F {
         int i = 7;
-        static String s = "hello";
+        static String s = "привет";
         void imethod() { System.out.println("Обычный метод"); }
         static void smethod() { System.out.println("Статический метод"); }
     }
@@ -46,15 +46,15 @@ public class Main {
         // F.i и F.imethod() без объекта не работают.
 
         Counter counter = new Counter();
-        System.out.println("getCount=" + counter.getCount());
-        System.out.println("5!=" + Counter.factorial(5));
+        System.out.println("Счётчик: " + counter.getCount());
+        System.out.println("Факториал 5: " + Counter.factorial(5));
 
         new C().method1();
 
         // Задание 4. Сначала создаём объекты Date.
         Date[] dates = new Date[10];
         for (int i = 0; i < dates.length; i++) dates[i] = new Date();
-        System.out.println("dates[0]=" + dates[0]);
-        System.out.println("dates[0].toString()=" + dates[0].toString());
+        System.out.println("Первый элемент массива: " + dates[0]);
+        System.out.println("Дата в виде строки: " + dates[0].toString());
     }
 }
