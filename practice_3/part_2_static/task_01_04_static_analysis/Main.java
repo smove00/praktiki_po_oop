@@ -3,16 +3,15 @@ package ru.mirea.oop.p3.part2.statics;
 import java.util.Date;
 
 public class Main {
-    // Методичка, задание 1: какие обращения к членам F допустимы.
+    // Задание 1. Обычные и статические члены класса.
     static class F {
-        int i = 7;                // принадлежит экземпляру
-        static String s = "hello"; // принадлежит классу
-        void imethod() { System.out.println("instance method"); }
-        static void smethod() { System.out.println("static method"); }
+        int i = 7;
+        static String s = "hello";
+        void imethod() { System.out.println("Обычный метод"); }
+        static void smethod() { System.out.println("Статический метод"); }
     }
 
-    // Задание 2: main обязательно static, getCount зависит от экземпляра,
-    // factorial не зависит от состояния и может быть static.
+    // Задание 2.
     static class Counter {
         private int count = 5;
         int getCount() { return count; }
@@ -24,7 +23,7 @@ public class Main {
         }
     }
 
-    // Задание 3: экземплярный метод нельзя вызывать из static-контекста без объекта.
+    // Задание 3.
     static class C {
         private final Circle circle = new Circle(3);
         void method1() { method2(); }
@@ -38,21 +37,21 @@ public class Main {
 
     public static void main(String[] args) {
         F f = new F();
-        System.out.println("1. f.i: " + f.i);       // допустимо
-        System.out.println("2. f.s: " + f.s);       // допустимо, но лучше F.s
-        f.imethod();                               // допустимо
-        f.smethod();                               // допустимо, но лучше F.smethod()
-        System.out.println("6. F.s: " + F.s);       // допустимо
-        F.smethod();                               // допустимо
-        // F.i и F.imethod() недопустимы, требуют объект F.
+        System.out.println("1. f.i: " + f.i);
+        System.out.println("2. f.s: " + f.s);
+        f.imethod();
+        f.smethod();
+        System.out.println("6. F.s: " + F.s);
+        F.smethod();
+        // F.i и F.imethod() без объекта не работают.
 
         Counter counter = new Counter();
         System.out.println("getCount=" + counter.getCount());
         System.out.println("5!=" + Counter.factorial(5));
 
-        new C().method1();                         // исправление задания 3
+        new C().method1();
 
-        // Задание 4: массив содержит null, пока каждый элемент не инициализирован.
+        // Задание 4. Сначала создаём объекты Date.
         Date[] dates = new Date[10];
         for (int i = 0; i < dates.length; i++) dates[i] = new Date();
         System.out.println("dates[0]=" + dates[0]);

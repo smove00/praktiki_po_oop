@@ -14,7 +14,7 @@ public class Main {
         INFO.put("Russia", "Россия — государство в Европе и Азии. Столица: Москва.");
     }
     private static void createWindow() {
-        JFrame frame = new JFrame("Выбор страны — JComboBox");
+        JFrame frame = new JFrame("Страны");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel(new BorderLayout(12, 12));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -37,7 +37,7 @@ public class Main {
     public static void main(String[] args) {
         if (args.length > 0 && "--self-test".equals(args[0])) {
             if (INFO.size() != 4 || !INFO.get("China").contains("Пекин")) throw new AssertionError();
-            System.out.println("Country options OK");
+            System.out.println("Список стран работает");
             return;
         }
         SwingUtilities.invokeLater(Main::createWindow);

@@ -109,7 +109,7 @@ public class Main {
             if (!"2.5".equals(calc.getDisplay())) throw new AssertionError("Division");
             calc.press("/"); calc.press("0"); calc.press("=");
             if (!"Ошибка".equals(calc.getDisplay())) throw new AssertionError("Division by zero");
-            System.out.println("Keypad calculator OK");
+            System.out.println("Калькулятор работает");
             return;
         }
         SwingUtilities.invokeLater(Main::createWindow);

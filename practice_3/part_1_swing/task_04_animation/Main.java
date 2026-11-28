@@ -28,11 +28,11 @@ public class Main {
     }
     private static void openWindow() {
         BufferedImage[] frames = createFrames();
-        JFrame frame = new JFrame("Покадровая анимация Swing");
+        JFrame frame = new JFrame("Анимация");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JLabel view = new JLabel(new ImageIcon(frames[0]));
         frame.add(view);
-        // javax.swing.Timer вызывает обновления на потоке обработки событий Swing.
+        // Меняем картинки по таймеру.
         final int[] index = {0};
         Timer timer = new Timer(70, event -> {
             index[0] = (index[0] + 1) % FRAME_COUNT;
@@ -48,7 +48,7 @@ public class Main {
         if (args.length > 0 && "--self-test".equals(args[0])) {
             BufferedImage[] frames = createFrames();
             if (frames.length != FRAME_COUNT || frames[0] == frames[1]) throw new AssertionError();
-            System.out.println("Generated animation frames OK");
+            System.out.println("Кадры созданы");
             return;
         }
         SwingUtilities.invokeLater(Main::openWindow);

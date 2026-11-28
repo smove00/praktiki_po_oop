@@ -19,7 +19,7 @@ public class Main {
 
     private static void createWindow() {
         Score model = new Score();
-        JFrame frame = new JFrame("AC Milan — Real Madrid");
+        JFrame frame = new JFrame("Счет матча");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel(new GridLayout(5, 1, 8, 8));
         panel.setBorder(BorderFactory.createEmptyBorder(18, 24, 18, 24));
@@ -62,7 +62,7 @@ public class Main {
             if (!"Result: 2 X 1".equals(score.result()) ||
                 !"Last Scorer: Real Madrid".equals(score.last()) ||
                 !"Winner: AC Milan".equals(score.winner())) throw new AssertionError();
-            System.out.println("Scoreboard model OK");
+            System.out.println("Счет работает");
             return;
         }
         SwingUtilities.invokeLater(Main::createWindow);

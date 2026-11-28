@@ -36,6 +36,7 @@ public class Main {
             g.setColor(color); g.fillRoundRect(x, y, width, height, 24, 24);
         }
     }
+    // Создаем 20 фигур со случайными размерами, цветами и координатами.
     static List<Shape> createShapes(long seed) {
         Random random = new Random(seed);
         List<Shape> shapes = new ArrayList<>();
@@ -70,7 +71,7 @@ public class Main {
             if (shapes.size() != 20) throw new AssertionError("Expected 20 shapes");
             for (Shape s : shapes) if (s.x < 0 || s.y < 0 ||
                 s.x + s.width > WIDTH || s.y + s.height > HEIGHT) throw new AssertionError();
-            System.out.println("Twenty shapes OK");
+            System.out.println("Фигуры созданы");
             return;
         }
         SwingUtilities.invokeLater(() -> {

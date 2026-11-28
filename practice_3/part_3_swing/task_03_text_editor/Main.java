@@ -15,7 +15,7 @@ public class Main {
         return menuItem;
     }
     private static void createWindow() {
-        JFrame frame = new JFrame("Текстовый редактор — Swing");
+        JFrame frame = new JFrame("Текстовый редактор");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JTextArea text = new JTextArea(12, 45);
         text.setLineWrap(true);
@@ -48,14 +48,14 @@ public class Main {
         item(edit, "Вырезать", text::cut);
         item(edit, "Вставить", text::paste);
         item(help, "О программе", () -> JOptionPane.showMessageDialog(frame,
-            "Практика 3. JTextArea, JMenuBar, JMenuItem и обработка событий Swing.",
+            "Простой текстовый редактор.",
             "Справка", JOptionPane.INFORMATION_MESSAGE));
         bar.add(file); bar.add(edit); bar.add(help);
         frame.setJMenuBar(bar);
 
         JPanel buttons = new JPanel(new GridLayout(1, 2, 15, 0));
-        JButton first = new JButton("Кнопка 1 — очистить");
-        JButton second = new JButton("Кнопка 2 — вставить пример");
+        JButton first = new JButton("Очистить");
+        JButton second = new JButton("Вставить текст");
         first.addActionListener(e -> text.setText(""));
         second.addActionListener(e -> text.insert("Пример текста. ", text.getCaretPosition()));
         buttons.add(first); buttons.add(second);
@@ -71,7 +71,7 @@ public class Main {
     public static void main(String[] args) {
         if (args.length > 0 && "--self-test".equals(args[0])) {
             if (!StandardCharsets.UTF_8.name().equals("UTF-8")) throw new AssertionError();
-            System.out.println("Editor UTF-8 setup OK");
+            System.out.println("Проверка кодировки пройдена");
             return;
         }
         SwingUtilities.invokeLater(Main::createWindow);

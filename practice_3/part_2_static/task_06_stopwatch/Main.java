@@ -24,7 +24,7 @@ public class Main {
         }
     }
 
-    // Сортировка выбором: на каждом шаге ищем минимум оставшейся части.
+    // Сортировка выбором.
     static void selectionSort(int[] numbers) {
         for (int i = 0; i < numbers.length - 1; i++) {
             int minIndex = i;

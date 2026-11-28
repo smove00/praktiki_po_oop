@@ -18,7 +18,7 @@ public class Main {
     }
 
     private static void createWindow() {
-        JFrame frame = new JFrame("Калькулятор двух чисел");
+        JFrame frame = new JFrame("Калькулятор");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel(new BorderLayout(8, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -65,7 +65,7 @@ public class Main {
             boolean threw = false;
             try { calculate(10, 0, '/'); } catch (ArithmeticException ex) { threw = true; }
             if (!threw) throw new AssertionError("Division by zero");
-            System.out.println("Four arithmetic operations OK");
+            System.out.println("Вычисления работают");
             return;
         }
         SwingUtilities.invokeLater(Main::createWindow);

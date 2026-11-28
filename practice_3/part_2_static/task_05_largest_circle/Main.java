@@ -16,6 +16,7 @@ public class Main {
         static int getNumberOfObjects() { return numberOfObjects; }
     }
 
+    // Ищем круг с наибольшей площадью.
     static Circle largest(Circle[] circles) {
         if (circles == null || circles.length == 0) throw new IllegalArgumentException("Empty array");
         Circle best = null;

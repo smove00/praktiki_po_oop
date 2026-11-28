@@ -12,7 +12,7 @@ public class Main {
         try {
             BufferedImage image = ImageIO.read(new File(path));
             if (image == null) throw new IOException("Неподдерживаемый формат изображения");
-            JFrame frame = new JFrame("Просмотр изображения: " + new File(path).getName());
+            JFrame frame = new JFrame("Изображение: " + new File(path).getName());
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             JLabel imageLabel = new JLabel(new ImageIcon(image));
             imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -31,7 +31,7 @@ public class Main {
         if (args.length == 1 && "--self-test".equals(args[0])) {
             BufferedImage image = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
             if (image.getWidth() != 10) throw new AssertionError();
-            System.out.println("Image viewer preparation OK");
+            System.out.println("Изображение создано");
             return;
         }
         if (args.length == 0) {
